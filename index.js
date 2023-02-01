@@ -30,7 +30,9 @@ function addManager() {
       },
       {
         name: "officeNumber",
+        type:'number',
         message: "What is team manager's office number? ",
+        validate:(val)=>{return val ? true:"Enter number only"}
       },
     ])
     .then((data) => {
@@ -64,7 +66,7 @@ function chooseTeam() {
       } else if (data.teamMember === "Intern") {
         addIntern();
       } else {
-        console.log(team)
+        
         const html = render(team)
         fs.writeFile(outputPath, html,(error)=>{
           console.log(error)

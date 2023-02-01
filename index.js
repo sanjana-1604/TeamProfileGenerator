@@ -64,13 +64,13 @@ function chooseTeam() {
       } else if (data.teamMember === "Intern") {
         addIntern();
       } else {
+        console.log(team)
         const html = render(team)
-        
         fs.writeFile(outputPath, html,(error)=>{
-          console.log("here", error)
+          console.log(error)
         })
         
-        process.exit();
+       
       }
     });
 }
@@ -94,12 +94,12 @@ function addEngineer() {
         message: "What is your engineer's Github username? ",
       }
     ])
-    .then((intern_data) => {
+    .then((engineer_data) => {
       team.push( new Engineer(
-          intern_data.github,
-          intern_data.name,
-          intern_data.empId,
-          intern_data.emailId
+          engineer_data.github,
+          engineer_data.name,
+          engineer_data.empId,
+          engineer_data.emailId
         )
       );
       chooseTeam()

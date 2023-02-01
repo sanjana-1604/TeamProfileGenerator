@@ -66,7 +66,7 @@ function chooseTeam() {
       } else {
         const html = render(team)
         
-        fs.writeFile(path.resolve(__dirname, "README.html"), html,(error)=>{
+        fs.writeFile(outputPath, html,(error)=>{
           console.log("here", error)
         })
         
